@@ -18,6 +18,9 @@ class CustomEvents
     {
         this.events = [];
 
+        /**
+        *    Clone "CustomEvents" prototype to the "$customBindObject" prototype
+        **/
         if( $customBindObject )
             Object.setPrototypeOf($customBindObject, this);
     }
