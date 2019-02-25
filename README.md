@@ -43,24 +43,34 @@ object.dispatch("whatever_event_you_like_2");
 use with passing the object 
 
 ```
-let arr = new Array(); 
+// make a custom object (Any object)
+
+let object = new Array();
+// OR 
+let object = new Object();
+// OR 
+let object = [];
+// OR 
+let object = {};
+
+
 // make instance of CustomEvents class and pass your custom object to constructor
 new CustomEvents( arr );
 
 // then you can create custom events
-arr.on("whatever_event_you_like", function(){
+object.on("whatever_event_you_like", function(){
     alert("Event triggered");
 });
 
-arr.on("whatever_event_you_like_2", function(){
+object.on("whatever_event_you_like_2", function(){
     alert("Event triggered");
 });
 
 // dispatch all events to our object OR .. .  
-arr.dispatch();
+object.dispatch();
 
 // ... OR you can dispatch spesific Event
-arr.dispatch("whatever_event_you_like_2");
+object.dispatch("whatever_event_you_like_2");
 
 ```
 
