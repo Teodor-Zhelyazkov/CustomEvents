@@ -9,3 +9,9 @@ Clone this repo
 ```
 https://github.com/Teodor-Zhelyazkov/CustomEvents.git
 ```
+
+## Usage
+
+```
+new CustomEvents()
+```
