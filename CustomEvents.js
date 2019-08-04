@@ -30,14 +30,16 @@ class CustomEvents
     *   @param {String}
     *   @param {Function}
     *
-    *   @return {Number(sync) && Function(async) } (Index in events array)
+    *   @return {CustomEvents}
     **/
     on( $event = "", $callBack = Function )
     {
-        return this.events.push({
+        this.events.push({
             event    : $event,
             callback : $callBack
         });
+
+        return this;
     }
 
     /**
