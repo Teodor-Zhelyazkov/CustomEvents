@@ -24,12 +24,18 @@ class myCustomClass extends CustomEvents
 let object = new myCustomClass();
 
 // then you can create custom events
-object.on("whatever_event_you_like", function(){
+object.on("whatever_event_you_like", function(CustomEvent){
     alert("Event triggered");
+    // 'this' points to original 'object'
+    // CustomEvent.name will be "whatever_event_you_like" 
+    // CustomEvent.data will be the object you passed in "dispatch(name, eventDaataPassed)" method
 });
 
-object.on("whatever_event_you_like_2", function(){
+object.on("whatever_event_you_like_2", function(CustomEvent){
     alert("Event triggered");
+    // 'this' points to original 'object'
+    // CustomEvent.name will be "whatever_event_you_like_2" 
+    // CustomEvent.data will be the object you passed in "dispatch(name, eventDaataPassed)" method
 });
 
 // dispatch all events to our object OR .. .  
@@ -37,6 +43,13 @@ object.dispatch();
 
 // ... OR you can dispatch spesific Event
 object.dispatch("whatever_event_you_like_2");
+
+// ... OR you can dispatch spesific Event with custom data
+var data = {
+    id : 25,
+    name : "John Wick"
+};
+object.dispatch("whatever_event_you_like_2", data);
 
 ```
 
@@ -58,12 +71,18 @@ let object = {};
 new CustomEvents( arr );
 
 // then you can create custom events
-object.on("whatever_event_you_like", function(){
+object.on("whatever_event_you_like", function(CustomEvent){
     alert("Event triggered");
+    // 'this' points to original 'object'
+    // CustomEvent.name will be "whatever_event_you_like" 
+    // CustomEvent.data will be the object you passed in "dispatch(name, eventDaataPassed)" method
 });
 
-object.on("whatever_event_you_like_2", function(){
+object.on("whatever_event_you_like_2", function(CustomEvent){
     alert("Event triggered");
+    // 'this' points to original 'object'
+    // CustomEvent.name will be "whatever_event_you_like_2" 
+    // CustomEvent.data will be the object you passed in "dispatch(name, eventDaataPassed)" method
 });
 
 // dispatch all events to our object OR .. .  
@@ -71,6 +90,13 @@ object.dispatch();
 
 // ... OR you can dispatch spesific Event
 object.dispatch("whatever_event_you_like_2");
+
+// ... OR you can dispatch spesific Event with custom data
+var data = {
+    id : 25,
+    name : "John Wick"
+};
+object.dispatch("whatever_event_you_like_2", data);
 
 ```
 
