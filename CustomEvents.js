@@ -1,11 +1,27 @@
 /**
-*   @author Teodor Zhelyazkov
+*   @class CustomEvent
+*   @param {String}
+*   @param {Object}
 *
+*   @return {CustomEvent}
+*/
+
+class CustomEvent
+{
+    constructor( $name, $data = null )
+    {
+        this.name = $name;
+        this.data = $data;
+    }
+}
+
+/**
 *   @class CustomEvents
 *   @param {Object, Array, Class etc...}
 *
 *   @return {CustomEvents}
 */
+
 class CustomEvents
 {
     /**
@@ -48,14 +64,16 @@ class CustomEvents
     *
     *   @return {Void} (Index in events array)
     **/
-    dispatch( $event = "" )
+    dispatch( $event = "", $data = null )
     {
         for (var i = 0; i < this.events.length; i++)
         {
             if( $event && this.events[i].event == $event )
-                setTimeout(this.events[i].callback, 0);
+                setTimeout(this.events[i].callback.call(this, new CustomEvent( $event, $data ) ), 0);
             else if( !$event )
-                setTimeout(this.events[i].callback, 0);
+                setTimeout(this.events[i].callback.call(this, new CustomEvent( $event, $data ) ), 0);
         }
     }
 }
+
+export default CustomEvents;
